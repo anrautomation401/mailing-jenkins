@@ -1,0 +1,2761 @@
+<!doctype html>
+<html class="loading"
+      lang="en"
+      data-textdirection="ltr">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+   <link rel="Stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/anrautomation401/mailing-jenkins/main/css/modern-template.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
+div.material-table {
+  padding: 0;
+}
+
+div.material-table .hiddensearch {
+  padding: 0 14px 0 24px;
+  border-bottom: solid 1px #DDDDDD;
+  display: none;
+}
+
+div.material-table .hiddensearch input {
+  margin: 0;
+  border: transparent 0 !important;
+  height: 48px;
+  color: rgba(0, 0, 0, .84);
+}
+
+div.material-table .hiddensearch input:active {
+  border: transparent 0 !important;
+}
+
+div.material-table table {
+  table-layout: fixed;
+}
+
+div.material-table .table-header {
+  height: 64px;
+  padding-left: 24px;
+  padding-right: 14px;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: flex;
+  -webkit-display: flex;
+  border-bottom: solid 1px #DDDDDD;
+}
+
+div.material-table .table-header .actions {
+  display: -webkit-flex;
+  margin-left: auto;
+}
+
+div.material-table .table-header .btn-flat {
+    min-width: 36px;
+    padding: 0 8px;
+}
+
+div.material-table .table-header input {
+  margin: 0;
+  height: auto;
+}
+
+div.material-table .table-header i {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 24px;
+}
+
+div.material-table .table-footer {
+  height: 56px;
+  padding-left: 24px;
+  padding-right: 14px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-align-items: center;
+  align-items: center;
+  font-size: 12px !important;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+div.material-table .table-footer .dataTables_length {
+  display: -webkit-flex;
+  display: flex;
+}
+
+div.material-table .table-footer label {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.54);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row
+  /* works with row or column */
+  
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+div.material-table .table-footer .select-wrapper {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row
+  /* works with row or column */
+  
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+div.material-table .table-footer .dataTables_info,
+div.material-table .table-footer .dataTables_length {
+  margin-right: 32px;
+}
+
+div.material-table .table-footer .material-pagination {
+  display: flex;
+  -webkit-display: flex;
+  margin: 0;
+}
+
+div.material-table .table-footer .material-pagination li:first-child {
+  margin-right: 24px;
+}
+
+div.material-table .table-footer .material-pagination li a {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+div.material-table .table-footer .select-wrapper input.select-dropdown {
+  margin: 0;
+  border-bottom: none;
+  height: auto;
+  line-height: normal;
+  font-size: 12px;
+  width: 40px;
+  text-align: right;
+}
+
+div.material-table .table-footer select {
+  background-color: transparent;
+  width: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  height: auto;
+  margin-left: 20px;
+}
+
+div.material-table .table-title {
+  font-size: 20px;
+  color: #000;
+}
+
+div.material-table table tr td {
+  padding: 0 0 0 56px;
+  height: 48px;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.87);
+  border-bottom: solid 1px #DDDDDD;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+div.material-table table tr td a {
+  color: inherit;
+}
+
+div.material-table table tr td a i {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+div.material-table table tr {
+  font-size: 12px;
+}
+
+div.material-table table th {
+  font-size: 12px;
+  font-weight: 500;
+  color: #757575;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 0;
+  height: 56px;
+  padding-left: 56px;
+  vertical-align: middle;
+  outline: none !important;
+}
+
+div.material-table table th.sorting_asc,
+div.material-table table th.sorting_desc {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+div.material-table table th.sorting:after,
+div.material-table table th.sorting_asc:after,
+div.material-table table th.sorting_desc:after {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  word-wrap: normal;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  content: "arrow_back";
+  -webkit-transform: rotate(90deg);
+  display: none;
+  vertical-align: middle;
+}
+
+div.material-table table th.sorting:hover:after,
+div.material-table table th.sorting_asc:after,
+div.material-table table th.sorting_desc:after {
+  display: inline-block;
+}
+
+div.material-table table th.sorting_desc:after {
+  content: "arrow_forward";
+}
+
+div.material-table table tbody tr:hover {
+  background-color: #EEE;
+}
+
+div.material-table table th:first-child,
+div.material-table table td:first-child {
+  padding: 0 0 0 24px;
+}
+
+div.material-table table th:last-child,
+div.material-table table td:last-child {
+  padding: 0 14px 0 0;
+}
+
+</style>
+</head>
+<body>
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">
+            <img src="https://raw.githubusercontent.com/anrautomation401/mailing-jenkins/main/img/altaIcon.png" alt="" width="120" height="24"></a>
+          <ul class="right hide-on-med-and-down">
+          <div class="actions"> 
+            <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+         </div>
+         </ul>
+     </div>
+</nav>
+<div class="row">
+  <div id="admin" class="col s12">
+    <div class="card material-table">
+      <table id="datatable">
+        <thead>
+          <tr> 
+           <th>Hostname</th>
+           <th>IP</th>
+	       <th>Domain</th>
+           <th>Tomcat Port</th>
+           <th>Tomcat configuration</th>
+           <th>Server configuration</th>
+           <th>Context Count</th>
+           <th>Context</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+          <td>ALTPAPP01</td>
+          
+           
+           <td>10.120.10.181</td>
+            <td>ALTPAPP01.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx160G<br>
+            
+          -Xms3g,-Xmx158g<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>6</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal1"><i class="material-icons">open_in_new</i></a>
+            <div id="modal1"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_U2</p>
+                  
+               <p class="center-align">TACO_BELL_U4</p>
+                  
+               <p class="center-align">TACO_BELL_U1</p>
+                  
+               <p class="center-align">TACO_BELL_U3</p>
+                  
+               <p class="center-align">TACO_BELL_U5</p>
+                  
+               <p class="center-align">TACO_BELL_U6</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP02</td>
+          
+           
+           <td>10.120.10.182</td>
+            <td>ALTPAPP02.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx158G<br>
+            
+          -Xms3g,-Xmx158g<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>6</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal2"><i class="material-icons">open_in_new</i></a>
+            <div id="modal2"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_U1</p>
+                  
+               <p class="center-align">TACO_BELL_U2</p>
+                  
+               <p class="center-align">TACO_BELL_U5</p>
+                  
+               <p class="center-align">TACO_BELL_U3</p>
+                  
+               <p class="center-align">TACO_BELL_U4</p>
+                  
+               <p class="center-align">TACO_BELL_U6</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP03</td>
+          
+           
+           <td>10.120.10.183</td>
+            <td>ALTPAPP03.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx158G<br>
+            
+          -Xms3g,-Xmx158g<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>6</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal3"><i class="material-icons">open_in_new</i></a>
+            <div id="modal3"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_U1</p>
+                  
+               <p class="center-align">TACO_BELL_U2</p>
+                  
+               <p class="center-align">TACO_BELL_U5</p>
+                  
+               <p class="center-align">TACO_BELL_U3</p>
+                  
+               <p class="center-align">TACO_BELL_U4</p>
+                  
+               <p class="center-align">TACO_BELL_U6</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP04</td>
+          
+           
+           <td>10.120.10.184</td>
+            <td>ALTPAPP04.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx158G<br>
+            
+          -Xms3g,-Xmx158g<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>6</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal4"><i class="material-icons">open_in_new</i></a>
+            <div id="modal4"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_U1</p>
+                  
+               <p class="center-align">TACO_BELL_U2</p>
+                  
+               <p class="center-align">TACO_BELL_U5</p>
+                  
+               <p class="center-align">TACO_BELL_U3</p>
+                  
+               <p class="center-align">TACO_BELL_U4</p>
+                  
+               <p class="center-align">TACO_BELL_U6</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP05</td>
+          
+           
+           <td>10.120.10.185</td>
+            <td>ALTPAPP05.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx158G<br>
+            
+          -Xms3g,-Xmx158g<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>6</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal5"><i class="material-icons">open_in_new</i></a>
+            <div id="modal5"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_U1</p>
+                  
+               <p class="center-align">TACO_BELL_U2</p>
+                  
+               <p class="center-align">TACO_BELL_U5</p>
+                  
+               <p class="center-align">TACO_BELL_U3</p>
+                  
+               <p class="center-align">TACO_BELL_U4</p>
+                  
+               <p class="center-align">TACO_BELL_U6</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP06</td>
+          
+           
+           <td>10.120.10.186</td>
+            <td>ALTPAPP06.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx160G<br>
+            
+          -Xms3G,-Xmx160G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>5</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal6"><i class="material-icons">open_in_new</i></a>
+            <div id="modal6"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">PIZZA_HUT_2_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_U2</p>
+                  
+               <p class="center-align">PIZZA_HUT_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_U2</p>
+                  
+               <p class="center-align">PIZZA_HUT_U3</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP07</td>
+          
+           
+           <td>10.120.10.187</td>
+            <td>ALTPAPP07.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3g,-Xmx158g<br>
+            
+          -Xms3g,-Xmx158g<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>6</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal7"><i class="material-icons">open_in_new</i></a>
+            <div id="modal7"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_U1</p>
+                  
+               <p class="center-align">TACO_BELL_U2</p>
+                  
+               <p class="center-align">TACO_BELL_U5</p>
+                  
+               <p class="center-align">TACO_BELL_U3</p>
+                  
+               <p class="center-align">TACO_BELL_U4</p>
+                  
+               <p class="center-align">TACO_BELL_U6</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP08</td>
+          
+           
+           <td>10.120.10.188</td>
+            <td>ALTPAPP08.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8070<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx142G<br>
+            
+          -Xms3g,-Xmx36g<br>
+            
+          -Xms3G,-Xmx142G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>11</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal8"><i class="material-icons">open_in_new</i></a>
+            <div id="modal8"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U1</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U2</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U3</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U4</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U5</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U6</p>
+                  
+               <p class="center-align">DENNYS_U1</p>
+                  
+               <p class="center-align">DENNYS_U2</p>
+                  
+               <p class="center-align">DENNYS_U3</p>
+                  
+               <p class="center-align">DENNYS_U4</p>
+                  
+               <p class="center-align">PEETS_COFFEE_U1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP09</td>
+          
+           
+           <td>10.120.10.189</td>
+            <td>ALTPAPP09.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx158G<br>
+            
+          -Xms3g,-Xmx158g<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>6</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal9"><i class="material-icons">open_in_new</i></a>
+            <div id="modal9"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_U1</p>
+                  
+               <p class="center-align">TACO_BELL_U2</p>
+                  
+               <p class="center-align">TACO_BELL_U5</p>
+                  
+               <p class="center-align">TACO_BELL_U3</p>
+                  
+               <p class="center-align">TACO_BELL_U4</p>
+                  
+               <p class="center-align">TACO_BELL_U6</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP10</td>
+          
+           
+           <td>10.120.10.190</td>
+            <td>ALTPAPP10.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx158G<br>
+            
+          -Xms3g,-Xmx158g<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>6</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal10"><i class="material-icons">open_in_new</i></a>
+            <div id="modal10"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_U1</p>
+                  
+               <p class="center-align">TACO_BELL_U2</p>
+                  
+               <p class="center-align">TACO_BELL_U3</p>
+                  
+               <p class="center-align">TACO_BELL_U4</p>
+                  
+               <p class="center-align">TACO_BELL_U5</p>
+                  
+               <p class="center-align">TACO_BELL_U6</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP11</td>
+          
+           
+           <td>10.120.10.191</td>
+            <td>ALTPAPP11.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx174G<br>
+            
+          -Xms3g,-Xmx142g<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>9</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal11"><i class="material-icons">open_in_new</i></a>
+            <div id="modal11"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_U1</p>
+                  
+               <p class="center-align">TACO_BELL_U2</p>
+                  
+               <p class="center-align">TACO_BELL_U3</p>
+                  
+               <p class="center-align">TACO_BELL_U4</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U2</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U3</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U4</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U5</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP12</td>
+          
+           
+           <td>10.120.10.192</td>
+            <td>ALTPAPP12.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8070<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx36G<br>
+            
+          -Xms3G,-Xmx160G<br>
+            
+          -Xms3G,-Xmx160G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>6</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal12"><i class="material-icons">open_in_new</i></a>
+            <div id="modal12"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">PIZZA_HUT_2_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_U2</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_U3</p>
+                  
+               <p class="center-align">PIZZA_HUT_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_U2</p>
+                  
+               <p class="center-align">PIZZA_HUT_U3</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP13</td>
+          
+           
+           <td>10.120.10.193</td>
+            <td>ALTPAPP13.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8090<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms40G,-Xmx216G<br>
+            
+          -Xms3G,-Xmx18G<br>
+            
+          -Xms40G,-Xmx92G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>19</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal13"><i class="material-icons">open_in_new</i></a>
+            <div id="modal13"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">LITTLE_CAESAR_D1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_D2</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_D3</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_D4</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_D5</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_D6</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_D7</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U2</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_D7</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_D6</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_D5</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_D4</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_D3</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_D2</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_D1</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U1</p>
+                  
+               <p class="center-align">CHICKEN_SALAD_CHICK_D1</p>
+                  
+               <p class="center-align">CHICKEN_SALAD_CHICK_D2</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP18</td>
+          
+           
+           <td>10.120.10.198</td>
+            <td>ALTPAPP18.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx180G<br>
+            
+          -Xms3G,-Xmx140G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>15</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal14"><i class="material-icons">open_in_new</i></a>
+            <div id="modal14"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">LITTLE_CAESAR_U1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U2</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U3</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U4</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U5</p>
+                  
+               <p class="center-align">.properties__U1</p>
+                  
+               <p class="center-align">.properties__U2</p>
+                  
+               <p class="center-align">.properties__U3</p>
+                  
+               <p class="center-align">.properties__U4</p>
+                  
+               <p class="center-align">.properties__U5</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U1</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U2</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U3</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U4</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U5</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP19</td>
+          
+           
+           <td>10.120.10.199</td>
+            <td>ALTPAPP19.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8070<br>
+            
+          8080<br>
+            
+          8090<br>
+            
+          8060<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx98G<br>
+            
+          -Xms3G,-Xmx104G<br>
+            
+          -Xms3G,-Xmx24G<br>
+            
+          -Xms3G,-Xmx58G<br>
+            
+          -Xms3G,-Xmx24G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>22</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal15"><i class="material-icons">open_in_new</i></a>
+            <div id="modal15"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">OUTBACK_U1</p>
+                  
+               <p class="center-align">TACO_BELL_PRE_U1</p>
+                  
+               <p class="center-align">TACO_BELL_PRE_CLONE_U1</p>
+                  
+               <p class="center-align">TACO_BELL_PRE_U2</p>
+                  
+               <p class="center-align">FRIENDLY_REST_U1</p>
+                  
+               <p class="center-align">FRIENDLY_REST_U2</p>
+                  
+               <p class="center-align">FRIENDLY_REST_R1</p>
+                  
+               <p class="center-align">ARBYS_PROD_U1</p>
+                  
+               <p class="center-align">BWW_PROD_U1</p>
+                  
+               <p class="center-align">BOBBY_COX_U1</p>
+                  
+               <p class="center-align">CHICKEN_SALAD_CHICK_U1</p>
+                  
+               <p class="center-align">CHICKEN_SALAD_CHICK_U2</p>
+                  
+               <p class="center-align">HUDDLE_HOUSE_U1</p>
+                  
+               <p class="center-align">HUDDLE_HOUSE_U2</p>
+                  
+               <p class="center-align">NEKTER_JUICE_BAR_U1</p>
+                  
+               <p class="center-align">OUTBACK_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_PRE_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_PRE_U2</p>
+                  
+               <p class="center-align">ROSAS_CAFE_U1</p>
+                  
+               <p class="center-align">ROSAS_CAFE_R1</p>
+                  
+               <p class="center-align">BOWLERO_PROD_U1</p>
+                  
+               <p class="center-align">BOWLERO_PROD_D1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP20</td>
+          
+           
+           <td>10.120.10.200</td>
+            <td>ALTPAPP20.mgmt.ersaltametrics.com</td>
+            <td> 
+          8060<br>
+            
+          80<br>
+            
+          8080<br>
+            
+          8090<br>
+            
+          8070<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx24G<br>
+            
+          -Xms3G,-Xmx98G<br>
+            
+          -Xms3G,-Xmx24G<br>
+            
+          -Xms3G,-Xmx58G<br>
+            
+          -Xms3G,-Xmx104G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>22</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal16"><i class="material-icons">open_in_new</i></a>
+            <div id="modal16"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">BOBBY_COX_U1</p>
+                  
+               <p class="center-align">BOBBY_COX_U2</p>
+                  
+               <p class="center-align">CHICKEN_SALAD_CHICK_U1</p>
+                  
+               <p class="center-align">HUDDLE_HOUSE_U1</p>
+                  
+               <p class="center-align">HUDDLE_HOUSE_U2</p>
+                  
+               <p class="center-align">NEKTER_JUICE_BAR_U1</p>
+                  
+               <p class="center-align">OUTBACK_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_PRE_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_PRE_U2</p>
+                  
+               <p class="center-align">ROSAS_CAFE_R1</p>
+                  
+               <p class="center-align">ROSAS_CAFE_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_PRE_SA2</p>
+                  
+               <p class="center-align">BOWLERO_PROD_U1</p>
+                  
+               <p class="center-align">TACO_BELL_PRE_U1</p>
+                  
+               <p class="center-align">FRIENDLY_REST_U1</p>
+                  
+               <p class="center-align">FRIENDLY_REST_U2</p>
+                  
+               <p class="center-align">FRIENDLY_REST_R1</p>
+                  
+               <p class="center-align">ARBYS_PROD_U1</p>
+                  
+               <p class="center-align">ARBYS_PROD_U2</p>
+                  
+               <p class="center-align">BWW_PROD_U1</p>
+                  
+               <p class="center-align">BWW_PROD_U2</p>
+                  
+               <p class="center-align">OUTBACK_U1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP22</td>
+          
+           
+           <td>10.120.10.202</td>
+            <td>ALTPAPP22.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8060<br>
+            
+          8010<br>
+            
+          8020<br>
+            
+          8030<br>
+            
+          8040<br>
+            
+          8050<br>
+            
+          8070<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx40G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+           </td>
+          
+           
+          <td>4 vcpu/126GB</td>
+          <td>7</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal17"><i class="material-icons">open_in_new</i></a>
+            <div id="modal17"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">PIZZA_HUT_SA1</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_SA1</p>
+                  
+               <p class="center-align">PIZZA_HUT_PRE_SA1</p>
+                  
+               <p class="center-align">BWW_PROD_SA1</p>
+                  
+               <p class="center-align">TACO_BELL_SA1</p>
+                  
+               <p class="center-align">TACO_BELL_PRE_SA1</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_SA1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP23</td>
+          
+           
+           <td>10.120.10.203</td>
+            <td>ALTPAPP23.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8010<br>
+            
+          8020<br>
+            
+          8030<br>
+            
+          8040<br>
+            
+          8050<br>
+            
+          8060<br>
+            
+          8070<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx40G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+          -Xms1G,-Xmx14G<br>
+            
+           </td>
+          
+           
+          <td>4 vcpu/126GB</td>
+          <td>15</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal18"><i class="material-icons">open_in_new</i></a>
+            <div id="modal18"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">NDL_NOODLES_SA1</p>
+                  
+               <p class="center-align">BOBBY_COX_SA1</p>
+                  
+               <p class="center-align">FRIENDLY_REST_SA1</p>
+                  
+               <p class="center-align">HUDDLE_HOUSE_SA1</p>
+                  
+               <p class="center-align">CHICKEN_SALAD_CHICK_SA1</p>
+                  
+               <p class="center-align">SNS1_STEAKNSHAKE_SA1</p>
+                  
+               <p class="center-align">ROSAS_CAFE_SA1</p>
+                  
+               <p class="center-align">ARBYS_PROD_SA1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_SA1</p>
+                  
+               <p class="center-align">DENNYS_SA1</p>
+                  
+               <p class="center-align">PEETS_COFFEE_SA1</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_SA1</p>
+                  
+               <p class="center-align">TACO_BELL_CLONE_U1</p>
+                  
+               <p class="center-align">TRAINING_CONTENT_P1</p>
+                  
+               <p class="center-align">TRAINING_CONTENT_U1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP24</td>
+          
+           
+           <td>10.120.10.204</td>
+            <td>ALTPAPP24.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+           </td>
+             <td> 
+          -Xms4G,-Xmx40G<br>
+            
+           </td>
+          
+           
+          <td>4 vcpu/63GB</td>
+          <td>25</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal19"><i class="material-icons">open_in_new</i></a>
+            <div id="modal19"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">PCFG_PIZZA_HUT_U1</p>
+                  
+               <p class="center-align">PCFG_PIZZA_HUT_2_U1</p>
+                  
+               <p class="center-align">PCFG_PIZZA_HUT_PRE_U1</p>
+                  
+               <p class="center-align">PCFG_BOBBY_COX_U1</p>
+                  
+               <p class="center-align">PCFG_CHP_CHIPOTLE_U1</p>
+                  
+               <p class="center-align">PCFG_HUDDLE_HOUSE_U1</p>
+                  
+               <p class="center-align">PCFG_OUTBACK_U1</p>
+                  
+               <p class="center-align">PCFG_TOKYO_JOE_U1</p>
+                  
+               <p class="center-align">PCFG_ARBYS_PROD_U1</p>
+                  
+               <p class="center-align">PCFG_BWW_PROD_U1</p>
+                  
+               <p class="center-align">PCFG_CHP_CHIPOTLE_EU_U1</p>
+                  
+               <p class="center-align">PCFG_CHICKEN_SALAD_CHICK_U1</p>
+                  
+               <p class="center-align">PCFG_LITTLE_CAESAR_U1</p>
+                  
+               <p class="center-align">PCFG_JACK_IN_THE_BOX_U1</p>
+                  
+               <p class="center-align">PCFG_LITTLE_CAESAR_U2</p>
+                  
+               <p class="center-align">PCFG_TACO_BELL_PRE_U1</p>
+                  
+               <p class="center-align">PCFG_DENNYS_U1</p>
+                  
+               <p class="center-align">PCFG_JACK_IN_THE_BOX_U2</p>
+                  
+               <p class="center-align">PCFG_FRIENDLY_REST_U1</p>
+                  
+               <p class="center-align">PCFG_NDL_NOODLES_U1</p>
+                  
+               <p class="center-align">PCFG_SNS_U1</p>
+                  
+               <p class="center-align">PCFG_ROSAS_CAFE_U1</p>
+                  
+               <p class="center-align">ALTA_MOBILE_APP_U1</p>
+                  
+               <p class="center-align">PCFG_PEETS_COFFEE_U1</p>
+                  
+               <p class="center-align">PCFG_TACO_BELL_U1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP28</td>
+          
+           
+           <td>10.120.10.208</td>
+            <td>ALTPAPP28.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx180G<br>
+            
+          -Xms3G,-Xmx140G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>10</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal20"><i class="material-icons">open_in_new</i></a>
+            <div id="modal20"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">LITTLE_CAESAR_U1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U2</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U3</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U4</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U5</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U1</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U2</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U3</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U4</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U5</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP29</td>
+          
+           
+           <td>10.120.10.209</td>
+            <td>ALTPAPP29.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8070<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx142G<br>
+            
+          -Xms3g,-Xmx36g<br>
+            
+          -Xms3G,-Xmx142G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>11</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal21"><i class="material-icons">open_in_new</i></a>
+            <div id="modal21"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U1</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U2</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U3</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U4</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U5</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U6</p>
+                  
+               <p class="center-align">DENNYS_U1</p>
+                  
+               <p class="center-align">DENNYS_U2</p>
+                  
+               <p class="center-align">DENNYS_U3</p>
+                  
+               <p class="center-align">DENNYS_U4</p>
+                  
+               <p class="center-align">PEETS_COFFEE_U1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP30</td>
+          
+           
+           <td>10.120.10.210</td>
+            <td>ALTPAPP30.mgmt.ersaltametrics.com</td>
+            <td> 
+          8080<br>
+            
+          80<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx140G<br>
+            
+          -Xms3G,-Xmx180G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>11</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal22"><i class="material-icons">open_in_new</i></a>
+            <div id="modal22"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">LITTLE_CAESAR_U2</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U3</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U4</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U5</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U1</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U2</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U3</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U4</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_R1</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U5</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP31</td>
+          
+           
+           <td>10.120.10.211</td>
+            <td>ALTPAPP31.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+           </td>
+             <td> 
+          -Xms1G,-Xmx12G<br>
+            
+           </td>
+          
+           
+          <td>4 vcpu/15GB</td>
+          <td>3</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal23"><i class="material-icons">open_in_new</i></a>
+            <div id="modal23"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">CHP_CHIPOTLE_EU_P1</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_EU_U1</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_EU_R1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP32</td>
+          
+           
+           <td>10.120.10.212</td>
+            <td>ALTPAPP32.mgmt.ersaltametrics.com</td>
+            <td> 
+          8080<br>
+            
+          80<br>
+            
+          8090<br>
+            
+           </td>
+             <td> 
+          -Xms40G,-Xmx92G<br>
+            
+          -Xms40G,-Xmx216G<br>
+            
+          -Xms3G,-Xmx18G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>20</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal24"><i class="material-icons">open_in_new</i></a>
+            <div id="modal24"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">LITTLE_CAESAR_U1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U2</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U3</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U4</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U5</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_D6</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_D7</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U6</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U7</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U1</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U2</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U3</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U4</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_R1</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_D5</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_D6</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_D7</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_U5</p>
+                  
+               <p class="center-align">CHICKEN_SALAD_CHICK_D1</p>
+                  
+               <p class="center-align">CHICKEN_SALAD_CHICK_D2</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP33</td>
+          
+           
+           <td>10.120.10.213</td>
+            <td>ALTPAPP33.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+           </td>
+             <td> 
+          -Xms1G,-Xmx12G<br>
+            
+           </td>
+          
+           
+          <td>4 vcpu/15GB</td>
+          <td>1</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal25"><i class="material-icons">open_in_new</i></a>
+            <div id="modal25"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">CHP_CHIPOTLE_EU_U1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP34</td>
+          
+           
+           <td>10.120.10.214</td>
+            <td>ALTPAPP34.mgmt.ersaltametrics.com</td>
+            <td> 
+          8060<br>
+            
+          8070<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx96G<br>
+            
+          -Xms3G,-Xmx96G<br>
+            
+          -Xms3G,-Xmx64G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>8</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal26"><i class="material-icons">open_in_new</i></a>
+            <div id="modal26"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">NDL_NOODLES_U1</p>
+                  
+               <p class="center-align">NDL_NOODLES_U2</p>
+                  
+               <p class="center-align">NDL_NOODLES_U3</p>
+                  
+               <p class="center-align">SNS1_STEAKNSHAKE_U1</p>
+                  
+               <p class="center-align">SNS1_STEAKNSHAKE_U2</p>
+                  
+               <p class="center-align">SNS1_STEAKNSHAKE_R1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U2</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP35</td>
+          
+           
+           <td>10.120.10.215</td>
+            <td>ALTPAPP35.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8070<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx142G<br>
+            
+          -Xms3g,-Xmx36g<br>
+            
+          -Xms3G,-Xmx142G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>12</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal27"><i class="material-icons">open_in_new</i></a>
+            <div id="modal27"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U1</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U2</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U3</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U4</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U5</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_U6</p>
+                  
+               <p class="center-align">DENNYS_U1</p>
+                  
+               <p class="center-align">DENNYS_U2</p>
+                  
+               <p class="center-align">DENNYS_U3</p>
+                  
+               <p class="center-align">DENNYS_U4</p>
+                  
+               <p class="center-align">PEETS_COFFEE_U1</p>
+                  
+               <p class="center-align">PEETS_COFFEE_R1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP36</td>
+          
+           
+           <td>10.120.10.216</td>
+            <td>ALTPAPP36.mgmt.ersaltametrics.com</td>
+            <td> 
+          8060<br>
+            
+          8070<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx96G<br>
+            
+          -Xms3G,-Xmx96G<br>
+            
+          -Xms3G,-Xmx64G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>8</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal28"><i class="material-icons">open_in_new</i></a>
+            <div id="modal28"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">NDL_NOODLES_U1</p>
+                  
+               <p class="center-align">NDL_NOODLES_U2</p>
+                  
+               <p class="center-align">NDL_NOODLES_U3</p>
+                  
+               <p class="center-align">SNS1_STEAKNSHAKE_R1</p>
+                  
+               <p class="center-align">SNS1_STEAKNSHAKE_U1</p>
+                  
+               <p class="center-align">SNS1_STEAKNSHAKE_U2</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_U2</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP37</td>
+          
+           
+           <td>10.120.10.217</td>
+            <td>ALTPAPP37.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx160G<br>
+            
+          -Xms3G,-Xmx160G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>5</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal29"><i class="material-icons">open_in_new</i></a>
+            <div id="modal29"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">PIZZA_HUT_2_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_U2</p>
+                  
+               <p class="center-align">PIZZA_HUT_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_U2</p>
+                  
+               <p class="center-align">PIZZA_HUT_U3</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP38</td>
+          
+           
+           <td>10.120.10.218</td>
+            <td>ALTPAPP38.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms3G,-Xmx160G<br>
+            
+          -Xms3G,-Xmx160G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/362GB</td>
+          <td>5</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal30"><i class="material-icons">open_in_new</i></a>
+            <div id="modal30"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">PIZZA_HUT_2_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_U2</p>
+                  
+               <p class="center-align">PIZZA_HUT_U1</p>
+                  
+               <p class="center-align">PIZZA_HUT_U2</p>
+                  
+               <p class="center-align">PIZZA_HUT_U3</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP43</td>
+          
+           
+           <td>10.120.10.223</td>
+            <td>ALTPAPP43.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8060<br>
+            
+           </td>
+             <td> 
+          -Xms1G,-Xmx40G<br>
+            
+          -Xms512m,-Xmx12g'<br>
+            
+           </td>
+          
+           
+          <td>4 vcpu/63GB</td>
+          <td>1</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal31"><i class="material-icons">open_in_new</i></a>
+            <div id="modal31"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">OUTBACK_U1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP44</td>
+          
+           
+           <td>10.120.10.224</td>
+            <td>ALTPAPP44.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+          8080<br>
+            
+           </td>
+             <td> 
+          -Xms512m,-Xmx4g<br>
+            
+          -Xms3g,-Xmx53g<br>
+            
+           </td>
+          
+           
+          <td>4 vcpu/63GB</td>
+          <td>2</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal32"><i class="material-icons">open_in_new</i></a>
+            <div id="modal32"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_D1</p>
+                  
+               <p class="center-align">TACO_BELL_PRE_D1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>altppol01</td>
+          
+           
+           <td>10.120.10.231</td>
+            <td>altppol01.mgmt.ersaltametrics.com</td>
+            <td> 
+          8080<br>
+            
+          8040<br>
+            
+          8050<br>
+            
+          8090<br>
+            
+          8060<br>
+            
+          8070<br>
+            
+           </td>
+             <td> 
+          -Xms3g,-Xmx56g<br>
+            
+          -Xms3g,-Xmx4g<br>
+            
+          -Xms1g,-Xmx12g<br>
+            
+          -Xms3g,-Xmx172g<br>
+            
+          -Xms3g,-Xmx84g<br>
+            
+          -Xms3g,-Xmx84g<br>
+            
+           </td>
+          
+           
+          <td>42 vcpu/413GB</td>
+          <td>26</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal33"><i class="material-icons">open_in_new</i></a>
+            <div id="modal33"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_P1</p>
+                  
+               <p class="center-align">TACO_BELL_PRE_P1</p>
+                  
+               <p class="center-align">PIZZA_HUT_PRE_P1</p>
+                  
+               <p class="center-align">PIZZA_HUT_PRE_P2</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_D1</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_P1</p>
+                  
+               <p class="center-align">PIZZA_HUT_D1</p>
+                  
+               <p class="center-align">PIZZA_HUT_P1</p>
+                  
+               <p class="center-align">PIZZA_HUT_P2</p>
+                  
+               <p class="center-align">PIZZA_HUT_R1</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_R1</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_P1</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_P2</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_P3</p>
+                  
+               <p class="center-align">HUDDLE_HOUSE_P1</p>
+                  
+               <p class="center-align">HUDDLE_HOUSE_P2</p>
+                  
+               <p class="center-align">BOBBY_COX_P1</p>
+                  
+               <p class="center-align">ARBYS_PROD_P1</p>
+                  
+               <p class="center-align">BOWLERO_PROD_P1</p>
+                  
+               <p class="center-align">BWW_PROD_P1</p>
+                  
+               <p class="center-align">FRIENDLY_REST_P1</p>
+                  
+               <p class="center-align">CHICKEN_SALAD_CHICK_P1</p>
+                  
+               <p class="center-align">MARIE_CALLENDERS_P1</p>
+                  
+               <p class="center-align">PEETS_COFFEE_P1</p>
+                  
+               <p class="center-align">ROSAS_CAFE_P1</p>
+                  
+               <p class="center-align">SNS1_STEAKNSHAKE_P1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>altppol02</td>
+          
+           
+           <td>10.120.10.232</td>
+            <td>altppol02.mgmt.ersaltametrics.com</td>
+            <td> 
+          8080<br>
+            
+          8040<br>
+            
+          8060<br>
+            
+          8070<br>
+            
+          8050<br>
+            
+          8090<br>
+            
+           </td>
+             <td> 
+          -Xms3g,-Xmx56g<br>
+            
+          -Xms1g,-Xmx2g<br>
+            
+          -Xms3g,-Xmx84g<br>
+            
+          -Xms3g,-Xmx84g<br>
+            
+          -Xms1g,-Xmx12g<br>
+            
+          -Xms3g,-Xmx172g<br>
+            
+           </td>
+          
+           
+          <td>42 vcpu/413GB</td>
+          <td>28</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal34"><i class="material-icons">open_in_new</i></a>
+            <div id="modal34"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_PRE_P1</p>
+                  
+               <p class="center-align">TACO_BELL_P1</p>
+                  
+               <p class="center-align">OUTBACK_R1</p>
+                  
+               <p class="center-align">OUTBACK_P1</p>
+                  
+               <p class="center-align">PIZZA_HUT_PRE_P1</p>
+                  
+               <p class="center-align">PIZZA_HUT_PRE_R1</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_D1</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_P1</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_R1</p>
+                  
+               <p class="center-align">PIZZA_HUT_D1</p>
+                  
+               <p class="center-align">PIZZA_HUT_P1</p>
+                  
+               <p class="center-align">PIZZA_HUT_R1</p>
+                  
+               <p class="center-align">JACK_IN_THE_BOX_P1</p>
+                  
+               <p class="center-align">HUDDLE_HOUSE_R1</p>
+                  
+               <p class="center-align">HUDDLE_HOUSE_P1</p>
+                  
+               <p class="center-align">BOBBY_COX_P1</p>
+                  
+               <p class="center-align">ARBYS_PROD_P1</p>
+                  
+               <p class="center-align">ARBYS_PROD_R1</p>
+                  
+               <p class="center-align">BWW_PROD_R1</p>
+                  
+               <p class="center-align">BWW_PROD_P1</p>
+                  
+               <p class="center-align">FRIENDLY_REST_P1</p>
+                  
+               <p class="center-align">CHICKEN_SALAD_CHICK_P1</p>
+                  
+               <p class="center-align">CHICKEN_SALAD_CHICK_R1</p>
+                  
+               <p class="center-align">NDL_NOODLES_P1</p>
+                  
+               <p class="center-align">MARIE_CALLENDERS_P1</p>
+                  
+               <p class="center-align">PEETS_COFFEE_P1</p>
+                  
+               <p class="center-align">SNS1_STEAKNSHAKE_P1</p>
+                  
+               <p class="center-align">OUTBACK_P1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP26</td>
+          
+           
+           <td>10.120.10.206</td>
+            <td>ALTPAPP26.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+           </td>
+             <td> 
+          -Xms10G,-Xmx210G<br>
+            
+           </td>
+          
+           
+          <td>12 vcpu/252GB</td>
+          <td>12</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal35"><i class="material-icons">open_in_new</i></a>
+            <div id="modal35"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">PIZZA_HUT_P1</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_P1</p>
+                  
+               <p class="center-align">DENNYS_P2</p>
+                  
+               <p class="center-align">ALTA_MOBILE_APP_P1</p>
+                  
+               <p class="center-align">NEKTER_JUICE_BAR_P1</p>
+                  
+               <p class="center-align">NEKTER_JUICE_BAR_R1</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_R1</p>
+                  
+               <p class="center-align">NEKTER_JUICE_BAR_P2</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_P1</p>
+                  
+               <p class="center-align">FRIENDLY_REST_P1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_P1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_P2</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP42</td>
+          
+           
+           <td>10.120.10.222</td>
+            <td>ALTPAPP42.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+           </td>
+             <td> 
+          -Xms10G,-Xmx335G<br>
+            
+           </td>
+          
+           
+          <td>24 vcpu/409GB</td>
+          <td>17</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal36"><i class="material-icons">open_in_new</i></a>
+            <div id="modal36"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">MARIE_CALLENDERS_P1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_P1</p>
+                  
+               <p class="center-align">DENNYS_P2</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_P3</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_P2</p>
+                  
+               <p class="center-align">PIZZA_HUT_P1</p>
+                  
+               <p class="center-align">DENNYS_P1</p>
+                  
+               <p class="center-align">BOBBY_COX_P1</p>
+                  
+               <p class="center-align">TACO_BELL_P1</p>
+                  
+               <p class="center-align">NDL_NOODLES_P1</p>
+                  
+               <p class="center-align">OUTBACK_P1</p>
+                  
+               <p class="center-align">NDL_NOODLES_R1</p>
+                  
+               <p class="center-align">PIZZA_HUT_2_P1</p>
+                  
+               <p class="center-align">FRIENDLY_REST_P1</p>
+                  
+               <p class="center-align">LITTLE_CAESAR_R1</p>
+                  
+               <p class="center-align">CHP_CHIPOTLE_P1</p>
+                  
+               <p class="center-align">DENNYS_R1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          <tr>
+          <td>ALTPAPP41</td>
+          
+           
+           <td>10.120.10.221</td>
+            <td>ALTPAPP41.mgmt.ersaltametrics.com</td>
+            <td> 
+          80<br>
+            
+           </td>
+             <td> 
+          -Xms10G,-Xmx335G<br>
+            
+           </td>
+          
+           
+          <td>22 vcpu/409GB</td>
+          <td>6</td>
+          <td>
+            <a class="modal-close waves-effect waves-green modal-trigger" href="#modal37"><i class="material-icons">open_in_new</i></a>
+            <div id="modal37"  class="modal modal-fixed-footer">
+            <div class="modal-content">
+               <div class="card-panel white">
+               <h5 class="center-align">Context Detail</h5>
+                  
+               <p class="center-align">TACO_BELL_P2</p>
+                  
+               <p class="center-align">TACO_BELL_P3</p>
+                  
+               <p class="center-align">TACO_BELL_P4</p>
+                  
+               <p class="center-align">TACO_BELL_P5</p>
+                  
+               <p class="center-align">TACO_BELL_P6</p>
+                  
+               <p class="center-align">TACO_BELL_P1</p>
+               
+             </div>
+             </div>
+           <div class="modal-footer">
+             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+         </div>
+          </td>   
+         
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, {});
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+
+
+<script type="text/javascript">
+(function(window, document, undefined) {
+
+  var factory = function($, DataTable) {
+    "use strict";
+
+    $('.search-toggle').click(function() {
+      if ($('.hiddensearch').css('display') == 'none')
+        $('.hiddensearch').slideDown();
+      else
+        $('.hiddensearch').slideUp();
+    });
+
+    /* Set the defaults for DataTables initialisation */
+    $.extend(true, DataTable.defaults, {
+      dom: "<'hiddensearch'f'>" +
+        "tr" +
+        "<'table-footer'lip'>",
+      renderer: 'material'
+    });
+
+    /* Default class modification */
+    $.extend(DataTable.ext.classes, {
+      sWrapper: "dataTables_wrapper",
+      sFilterInput: "form-control input-sm",
+      sLengthSelect: "form-control input-sm"
+    });
+
+    /* Bootstrap paging button renderer */
+    DataTable.ext.renderer.pageButton.material = function(settings, host, idx, buttons, page, pages) {
+      var api = new DataTable.Api(settings);
+      var classes = settings.oClasses;
+      var lang = settings.oLanguage.oPaginate;
+      var btnDisplay, btnClass, counter = 0;
+
+      var attach = function(container, buttons) {
+        var i, ien, node, button;
+        var clickHandler = function(e) {
+          e.preventDefault();
+          if (!$(e.currentTarget).hasClass('disabled')) {
+            api.page(e.data.action).draw(false);
+          }
+        };
+
+        for (i = 0, ien = buttons.length; i < ien; i++) {
+          button = buttons[i];
+
+          if ($.isArray(button)) {
+            attach(container, button);
+          } else {
+            btnDisplay = '';
+            btnClass = '';
+
+            switch (button) {
+
+              case 'first':
+                btnDisplay = lang.sFirst;
+                btnClass = button + (page > 0 ?
+                  '' : ' disabled');
+                break;
+
+              case 'previous':
+                btnDisplay = '<i class="material-icons">chevron_left</i>';
+                btnClass = button + (page > 0 ?
+                  '' : ' disabled');
+                break;
+
+              case 'next':
+                btnDisplay = '<i class="material-icons">chevron_right</i>';
+                btnClass = button + (page < pages - 1 ?
+                  '' : ' disabled');
+                break;
+
+              case 'last':
+                btnDisplay = lang.sLast;
+                btnClass = button + (page < pages - 1 ?
+                  '' : ' disabled');
+                break;
+
+            }
+
+            if (btnDisplay) {
+              node = $('<li>', {
+                  'class': classes.sPageButton + ' ' + btnClass,
+                  'id': idx === 0 && typeof button === 'string' ?
+                    settings.sTableId + '_' + button : null
+                })
+                .append($('<a>', {
+                    'href': '#',
+                    'aria-controls': settings.sTableId,
+                    'data-dt-idx': counter,
+                    'tabindex': settings.iTabIndex
+                  })
+                  .html(btnDisplay)
+                )
+                .appendTo(container);
+
+              settings.oApi._fnBindAction(
+                node, {
+                  action: button
+                }, clickHandler
+              );
+
+              counter++;
+            }
+          }
+        }
+      };
+
+       
+      var activeEl;
+
+      try {
+        activeEl = $(document.activeElement).data('dt-idx');
+      } catch (e) {}
+
+      attach(
+        $(host).empty().html('<ul class="material-pagination"/>').children('ul'),
+        buttons
+      );
+
+      if (activeEl) {
+        $(host).find('[data-dt-idx=' + activeEl + ']').focus();
+      }
+    };
+
+    /*
+     * TableTools Bootstrap compatibility
+     * Required TableTools 2.1+
+     */
+    if (DataTable.TableTools) {
+      // Set the classes that TableTools uses to something suitable for Bootstrap
+      $.extend(true, DataTable.TableTools.classes, {
+        "container": "DTTT btn-group",
+        "buttons": {
+          "normal": "btn btn-default",
+          "disabled": "disabled"
+        },
+        "collection": {
+          "container": "DTTT_dropdown dropdown-menu",
+          "buttons": {
+            "normal": "",
+            "disabled": "disabled"
+          }
+        },
+        "print": {
+          "info": "DTTT_print_info"
+        },
+        "select": {
+          "row": "active"
+        }
+      });
+
+      // Have the collection use a material compatible drop down
+      $.extend(true, DataTable.TableTools.DEFAULTS.oTags, {
+        "collection": {
+          "container": "ul",
+          "button": "li",
+          "liner": "a"
+        }
+      });
+    }
+
+  }; // /factory
+
+  // Define as an AMD module if possible
+  if (typeof define === 'function' && define.amd) {
+    define(['jquery', 'datatables'], factory);
+  } else if (typeof exports === 'object') {
+    // Node/CommonJS
+    factory(require('jquery'), require('datatables'));
+  } else if (jQuery) {
+    // Otherwise simply initialise as normal, stopping multiple evaluation
+    factory(jQuery, jQuery.fn.dataTable);
+  }
+
+})(window, document);
+
+$(document).ready(function() {
+  $('#datatable').dataTable({
+    "oLanguage": {
+      "sStripClasses": "",
+      "sSearch": "",
+      "sSearchPlaceholder": "Enter Keywords Here",
+      "sInfo": "_START_ -_END_ of _TOTAL_",
+      "sLengthMenu": '<span>Rows per page:</span><select class="browser-default">' +
+        '<option value="10">10</option>' +
+        '<option value="20">20</option>' +
+        '<option value="30">30</option>' +
+        '<option value="40">40</option>' +
+        '<option value="50">50</option>' +
+        '<option value="-1">All</option>' +
+        '</select></div>'
+    },
+    bAutoWidth: false
+  });
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+<body>
+</html>
